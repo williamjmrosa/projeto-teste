@@ -1,4 +1,4 @@
-package com.mballem.curso.boot;
+package fluentlenium.teste;
 
 import static org.junit.Assert.*;
 
