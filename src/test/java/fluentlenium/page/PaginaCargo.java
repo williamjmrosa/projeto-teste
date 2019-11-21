@@ -8,7 +8,10 @@ import org.fluentlenium.core.annotation.PageUrl;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
 
+import lombok.Data;
+
 @PageUrl("http://localhost:8080/cargos/cadastrar")
+@Data
 public class PaginaCargo extends FluentPage{
 	
 	@FindBy(id = "nome")
@@ -17,7 +20,7 @@ public class PaginaCargo extends FluentPage{
 	@FindBy(id = "departamento")
 	private FluentWebElement departamento;
 	
-    @FindBy(css = "form.button")
+    @FindBy(id = "salvar")
     private FluentWebElement salvar;
 
     public void isAt() {

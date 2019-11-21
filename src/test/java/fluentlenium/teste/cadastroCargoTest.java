@@ -19,26 +19,27 @@ import static org.fluentlenium.assertj.FluentLeniumAssertions.assertThat;
 import static org.fluentlenium.core.filter.FilterConstructor.with;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Wait
-@FluentConfiguration(webDriver="chrome")
-public class cadastroCargoTest {
+@FluentConfiguration(webDriver = "chrome")
+public class cadastroCargoTest extends FluentTest{
 
-		@LocalServerPort
-	    protected int port;
 
-	    @Page
-	    PaginaCargo paginaCargo;
 
-	    
-	    @BeforeClass
-	    public static void setupClass() {
-	        WebDriverManager.chromedriver().setup();
-	    }
+	@Page
+	PaginaCargo paginaCargo;
 
-	
+	@BeforeClass
+	public static void setupClass() {
+		WebDriverManager.chromedriver().setup();
+	}
+
 	@Test
 	public void test() {
+		paginaCargo.go();
+		paginaCargo.isAt();
+		paginaCargo.getNome().fill().with("Gerente");
+		paginaCargo.getDepartamento().fillSelect().withText("Adm");
+		paginaCargo.getSalvar().submit();
 		
 	}
 
