@@ -1,14 +1,9 @@
 package fluentlenium.teste;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.openqa.selenium.support.FindBy;
 
 public class paginaDepartamento {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 }
