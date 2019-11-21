@@ -20,7 +20,7 @@ public class PaginaCargo extends FluentPage{
 	@FindBy(id = "departamento")
 	private FluentWebElement departamento;
 	
-    @FindBy(id = "salvar")
+    @FindBy(css = "button.btn.btn-primary.btn-sm")
     private FluentWebElement salvar;
 
     public void isAt() {
