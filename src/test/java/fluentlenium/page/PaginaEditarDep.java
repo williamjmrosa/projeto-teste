@@ -9,7 +9,7 @@ import org.fluentlenium.core.domain.FluentWebElement;
 import org.junit.Test;
 import org.openqa.selenium.support.FindBy;
 @PageUrl("http://localhost:8080/departamentos/listar")
-public class PaginaListarDep extends FluentPage{
+public class PaginaEditarDep extends FluentPage{
 	
 	@FindBy(css = "a.btn.btn-info.btn-sm")
     private FluentWebElement editar;
@@ -47,4 +47,5 @@ public class PaginaListarDep extends FluentPage{
         assertThat(window().title()).isEqualTo("Spring-Boot Básico");
                
     }
+	
 }

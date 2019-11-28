@@ -37,7 +37,7 @@ public class CadastroDepartamento extends FluentTest{
 	 }
 	 
 	 @Test
-	 public void cadastroComDoisCaracteres()
+	 public void cadastroComUmCaracteres()
 	 {
 		 paginaDepartamento.go();
 		 paginaDepartamento.isAt();

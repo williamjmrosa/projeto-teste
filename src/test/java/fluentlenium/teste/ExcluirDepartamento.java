@@ -9,27 +9,29 @@ import org.fluentlenium.core.hook.wait.Wait;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import fluentlenium.page.PaginaExcluirDep;
 import fluentlenium.page.PaginaEditarDep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Wait
 @FluentConfiguration(webDriver="chrome")
-public class EditarDepartamento extends FluentTest{
+public class ExcluirDepartamento extends FluentTest{
 
-	@Page PaginaEditarDep paginaListarDep;
+
+	@Page PaginaExcluirDep paginaExcluirDep;
 	
+
 	 @BeforeClass
 	    public static void setupClass() {
 	        WebDriverManager.chromedriver().setup();
 	    }
 	 
 	 @Test
-	 public void verificaEditarDepartamento() {
-		 paginaListarDep.go();
-		 paginaListarDep.isAt();
-		 paginaListarDep.getEditar().click();
-		 paginaListarDep.getNomeCampo().fill().with("Nome editado");
-		 paginaListarDep.getEnviar().submit();
+	 public void verificaExcluirDepartamento() {
+		 paginaExcluirDep.go();
+		 paginaExcluirDep.isAt();
+		 paginaExcluirDep.getExcluir().click();
+		 paginaExcluirDep.getAceitarExcluir().click();
 	 }
 
 }
