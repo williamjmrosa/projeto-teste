@@ -29,7 +29,7 @@ public class CadastroDepartamento extends FluentTest{
 	    }
 	 
 	 @Test
-	 public void verificaCadastroFuncionario() {
+	 public void verificaCadastroDepartamento() {
 		 paginaDepartamento.go();
 		 paginaDepartamento.isAt();
 		 paginaDepartamento.getNomeCampo().fill().with("Adm");
