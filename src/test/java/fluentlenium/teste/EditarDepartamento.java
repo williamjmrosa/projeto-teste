@@ -1,5 +1,6 @@
 package fluentlenium.teste;
 
+import static org.fluentlenium.assertj.FluentLeniumAssertions.assertThat;
 import static org.junit.Assert.*;
 
 import org.fluentlenium.adapter.junit.FluentTest;
@@ -30,6 +31,9 @@ public class EditarDepartamento extends FluentTest{
 		 paginaListarDep.getEditar().click();
 		 paginaListarDep.getNomeCampo().fill().with("Nome editado");
 		 paginaListarDep.getEnviar().submit();
+		 assertThat($(".alerta")).hasText("Departamento editado com sucesso.");
+
+
 	 }
 
 }

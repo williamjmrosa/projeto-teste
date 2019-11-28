@@ -1,5 +1,6 @@
 package fluentlenium.teste;
 
+import static org.fluentlenium.assertj.FluentLeniumAssertions.assertThat;
 import static org.junit.Assert.*;
 
 import org.fluentlenium.adapter.junit.FluentTest;
@@ -32,6 +33,8 @@ public class ExcluirDepartamento extends FluentTest{
 		 paginaExcluirDep.isAt();
 		 paginaExcluirDep.getExcluir().click();
 		 paginaExcluirDep.getAceitarExcluir().click();
+		 assertThat($(".alerta")).hasText("Departamento excluído com sucesso.");
+
 	 }
 
 }
