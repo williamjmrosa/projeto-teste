@@ -21,7 +21,7 @@ import static org.fluentlenium.core.filter.FilterConstructor.with;
 @RunWith(SpringRunner.class)
 @Wait
 @FluentConfiguration(webDriver = "chrome")
-public class cadastroCargoTest extends FluentTest{
+public class CadastroCargoTest extends FluentTest{
 
 
 
