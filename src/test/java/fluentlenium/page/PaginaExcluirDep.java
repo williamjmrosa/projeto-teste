@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PaginaExcluirDep extends FluentPage{
 
-	@FindBy(id = "btn_departamentos/excluir/1")
+	@FindBy(id = "btn_departamentos/excluir/2")
 	private FluentWebElement excluir;
 	
 	@FindBy(id = "ok_confirm")

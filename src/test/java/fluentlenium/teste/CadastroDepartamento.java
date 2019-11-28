@@ -32,8 +32,9 @@ public class CadastroDepartamento extends FluentTest{
 	 public void verificaCadastroDepartamento() {
 		 paginaDepartamento.go();
 		 paginaDepartamento.isAt();
-		 paginaDepartamento.getNomeCampo().fill().with("Adm");
+		 paginaDepartamento.getNomeCampo().fill().with("Contabilidade");
 		 paginaDepartamento.getEnviar().submit();
+		 assertThat($(".alerta")).hasText("Departamento inserido com sucesso.");
 	 }
 	 
 	 @Test
@@ -43,5 +44,17 @@ public class CadastroDepartamento extends FluentTest{
 		 paginaDepartamento.isAt();
 		 paginaDepartamento.getNomeCampo().fill().with("A");
 		 paginaDepartamento.getEnviar().submit();
+		 assertThat($("span")).hasText("O nome do departamento deve ter entre 3 e 60 caracteres.");
 	 }
+	 @Test
+	 public void cadastroSemCaracteres()
+	 {
+		 paginaDepartamento.go();
+		 paginaDepartamento.isAt();
+		 paginaDepartamento.getNomeCampo().fill().with("");
+		 paginaDepartamento.getEnviar().submit();
+		 assertThat($("span")).hasText("O nome do departamento deve ter entre 3 e 60 caracteres.");
+		 assertThat($("span")).hasText("Informe um nome.");
+	 }
+	 
 }

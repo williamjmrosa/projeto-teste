@@ -1,6 +1,5 @@
 package fluentlenium.teste;
 
-import static org.fluentlenium.assertj.FluentLeniumAssertions.assertThat;
 import static org.junit.Assert.*;
 
 import org.fluentlenium.adapter.junit.FluentTest;
@@ -10,30 +9,24 @@ import org.fluentlenium.core.hook.wait.Wait;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fluentlenium.page.PaginaEditarDep;
+import fluentlenium.page.PaginaCadastraFuncionario;
+import fluentlenium.page.PaginaEditarFuncionario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Wait
 @FluentConfiguration(webDriver="chrome")
-public class EditarDepartamento extends FluentTest{
+public class EditarFuncionario extends FluentTest{
 
-	@Page PaginaEditarDep paginaListarDep;
+	@Page PaginaEditarFuncionario paginaEditarFuncionario;
 	
 	 @BeforeClass
 	    public static void setupClass() {
 	        WebDriverManager.chromedriver().setup();
 	    }
 	 
-	 @Test
-	 public void verificaEditarDepartamento() {
-		 paginaListarDep.go();
-		 paginaListarDep.isAt();
-		 paginaListarDep.getEditar().click();
-		 paginaListarDep.getNomeCampo().fill().with("Nome editado");
-		 paginaListarDep.getEnviar().submit();
-		 assertThat($(".alerta")).hasText("Departamento editado com sucesso.");
-
-
-	 }
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
 
 }
