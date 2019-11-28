@@ -12,8 +12,8 @@ import lombok.Data;
 
 @PageUrl("http://localhost:8080/cargos/listar")
 public class PaginaExcluirCargo extends FluentPage{
-	
-	@FindBy(id = "btn_cargos/excluir/6")
+	//Codigo pra excluir deve ser inserdo em btn_cargos/excluir/?codigo
+	@FindBy(id = "btn_cargos/excluir/16")
 	private FluentWebElement excluir;
 	
 	@FindBy(id = "ok_confirm")

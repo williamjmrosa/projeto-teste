@@ -35,8 +35,10 @@ public class ExcluirCargoTest extends FluentTest {
 
 	@Test
 	public void testEditar() {
+		
 		excluirCargo.go();
 		excluirCargo.isAt();
+		//Deve inserir o id pra excluir o cargo no PaginaExcluirCargo
 		excluirCargo.getExcluir().click();
 		excluirCargo.getAceitarExcluir().click();
 		assertThat($(".alerta")).hasText("Cargo excluido com sucesso.");
