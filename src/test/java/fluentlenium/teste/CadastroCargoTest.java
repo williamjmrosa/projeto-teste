@@ -21,9 +21,7 @@ import static org.fluentlenium.core.filter.FilterConstructor.with;
 @RunWith(SpringRunner.class)
 @Wait
 @FluentConfiguration(webDriver = "chrome")
-public class CadastroCargoTest extends FluentTest{
-
-
+public class CadastroCargoTest extends FluentTest {
 
 	@Page
 	PaginaCargo paginaCargo;
@@ -34,13 +32,36 @@ public class CadastroCargoTest extends FluentTest{
 	}
 
 	@Test
-	public void test() {
+	public void testCadastro() {
 		paginaCargo.go();
 		paginaCargo.isAt();
-		paginaCargo.getNome().fill().with("Gerente");
-		paginaCargo.getDepartamento().fillSelect().withText("Adm");
+		paginaCargo.getNome().fill().with("Gerentes");
+		paginaCargo.getDepartamento().fillSelect().withText("Recursos Humanos");
 		paginaCargo.getSalvar().submit();
-		
+		assertThat($(".alerta")).hasText("Cargo inserido com sucesso.");
+
+	}
+	
+	@Test
+	public void testCadastroMinimoCaracteres() {
+		paginaCargo.go();
+		paginaCargo.isAt();
+		paginaCargo.getNome().fill().with("Ge");
+		paginaCargo.getDepartamento().fillSelect().withText("Recursos Humanos");
+		paginaCargo.getSalvar().submit();
+		assertThat($("span")).hasText("O nome do cargo deve conter no máximo 60 caracteres e no mínimo três caracteres.");
+
+	}
+	
+	@Test
+	public void testCadastroMaximoCaracteres() {
+		paginaCargo.go();
+		paginaCargo.isAt();
+		paginaCargo.getNome().fill().with("Gerentessssssssssssssssssssssssssssssssssssssssssssssssssssss");
+		paginaCargo.getDepartamento().fillSelect().withText("Recursos Humanos");
+		paginaCargo.getSalvar().submit();
+		assertThat($("span")).hasText("O nome do cargo deve conter no máximo 60 caracteres e no mínimo três caracteres.");
+
 	}
 
 }
