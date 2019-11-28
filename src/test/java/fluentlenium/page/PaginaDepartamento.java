@@ -35,7 +35,6 @@ public class PaginaDepartamento extends FluentPage{
 
 	public void isAt() {
         assertThat(window().title()).isEqualTo("Spring-Boot Básico");
-        
     }
 }
 
