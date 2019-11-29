@@ -62,11 +62,31 @@ public class CadastrarFuncionario extends FluentTest{
 	 }
 	 
 	 @Test
+	 public void cadastrarFuncioanrioComNomeInvalido()
+	 {
+		 paginaCadastrarFuncionario.go();
+		 paginaCadastrarFuncionario.isAt();
+		 paginaCadastrarFuncionario.getNomeFuncionario().fill().with("a");
+		 paginaCadastrarFuncionario.getSalarioFuncionario().fill().with("120000");
+		 paginaCadastrarFuncionario.getDataFuncionario().fill().with("12112019");
+		 paginaCadastrarFuncionario.getDataSaidaFuncionario().fill().with("11112019");
+		 paginaCadastrarFuncionario.getFuncionarioCargo().fillSelect().withText("Gerente");
+		 paginaCadastrarFuncionario.getFuncionarioCidade().fill().with("São Leopoldo");
+		 paginaCadastrarFuncionario.getFuncionarioComplemento().fill().with("complemento");
+		 paginaCadastrarFuncionario.getFuncionarioLogradouro().fill().with("casa");
+		 paginaCadastrarFuncionario.getFuncionarioCep().fill().with("120890");
+		 paginaCadastrarFuncionario.getFuncionarioBairro().fill().with("Bairro 1");
+		 paginaCadastrarFuncionario.getFuncionarioUf().fillSelect().withText("RS");
+		 paginaCadastrarFuncionario.getFuncionarioNumero().fill().with("120");
+		 paginaCadastrarFuncionario.getFuncionarioEnviar().submit();
+		 assertThat($("span")).hasText("Deve estar entre 3 e 255 caracteres."); 
+	 }
+	 @Test
 	 public void cadastrarFuncioanrioComCepInvalido()
 	 {
 		 paginaCadastrarFuncionario.go();
 		 paginaCadastrarFuncionario.isAt();
-		 paginaCadastrarFuncionario.getNomeFuncionario().fill().with("Rodrigo");
+		 paginaCadastrarFuncionario.getNomeFuncionario().fill().with("Carlos");
 		 paginaCadastrarFuncionario.getSalarioFuncionario().fill().with("120000");
 		 paginaCadastrarFuncionario.getDataFuncionario().fill().with("12112019");
 		 paginaCadastrarFuncionario.getDataSaidaFuncionario().fill().with("11112019");
