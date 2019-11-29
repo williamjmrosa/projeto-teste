@@ -1,5 +1,6 @@
 package fluentlenium.teste;
 
+import static org.fluentlenium.assertj.FluentLeniumAssertions.assertThat;
 import static org.junit.Assert.*;
 
 import org.fluentlenium.adapter.junit.FluentTest;
@@ -24,9 +25,21 @@ public class EditarFuncionario extends FluentTest{
 	        WebDriverManager.chromedriver().setup();
 	    }
 	 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
+	 @Test
+	 public void verificaEditarFuncionario() {
+		 paginaEditarFuncionario.go();
+		 paginaEditarFuncionario.isAt();
+		 paginaEditarFuncionario.getBotãoEditar().click();
+		 paginaEditarFuncionario.getFuncionarioBairro().fill().with("Bairro 1");
+		 paginaEditarFuncionario.getFuncionarioCep().fill().with("91110433");
+		 paginaEditarFuncionario.getFuncionarioCidade().fill().with("São Leopoldo");
+		 paginaEditarFuncionario.getFuncionarioComplemento().fill().with("Casa");
+		 paginaEditarFuncionario.getFuncionarioLogradouro().fill().with("Logradouro");
+		 paginaEditarFuncionario.getFuncionarioNumero().fill().with("90");
+		 paginaEditarFuncionario.getFuncionarioUf().fillSelect().withText("RS");
+		 paginaEditarFuncionario.getFuncionarioCargo().fillSelect().withText("Gerente");
+		 paginaEditarFuncionario.getDataFuncionario().fill().with("29112019");
+		 paginaEditarFuncionario.getFuncionarioEnviar().submit();
+		 assertThat($(".alerta")).hasText("Funcionário editado com sucesso.");
+	 }
 }
